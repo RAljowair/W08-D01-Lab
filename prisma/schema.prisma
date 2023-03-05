@@ -20,11 +20,14 @@ model Student {
 model Classroom {
   id String @id @default(uuid())
   name String @unique
+  teacher_id String 
+  teacher Teacher @relation(fields: [teacher_id],references: [id])
 }
 
 model Teacher {
   id String @id @default(uuid())
   name String @unique
+  classrooms Classroom[]
 }
 
 model Profile {
