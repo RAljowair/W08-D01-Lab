@@ -5,7 +5,7 @@ import {
   findTeacherById,
 } from "../controllers/teacher.controller";
 import { validate } from "../middleware/validate";
-import { addTeacherType } from "../zod.schema/zod.teacher copy";
+import { addTeacherType } from "../zod.schema/zod.teacher";
 
 const route = express.Router();
 
