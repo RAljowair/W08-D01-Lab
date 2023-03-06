@@ -15,12 +15,22 @@ model Student {
   name String
   age Int
   major String
+  student_has_classroom Student_has_classroom[]
+}
+
+model Student_has_classroom {
+  id String @id @default(uuid())
+  student_id String @unique
+  classroom_id String @unique
+  student Student @relation(fields: [student_id],references: [id])
+  classroom Classroom @relation(fields: [classroom_id],references: [id])
 }
 
 model Classroom {
   id String @id @default(uuid())
   name String @unique
   teacher_id String 
+  student_has_classroom Student_has_classroom[]
   teacher Teacher @relation(fields: [teacher_id],references: [id])
 }
 
